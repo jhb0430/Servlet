@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h3>나이 확인 링크 페이지</h3>
+	<!--<a href="/servlet/ex03" target="_blank">링크</a>   -->
+	<!-- 같은 서버 안에 있는 페이지로 이동할 것이 때문에 (http://localhost:8080 를 제외한)나머지 경로만 적어주면 됨! "절대경로"라고 함-->
+	<!-- http://localhost:8080/servlet/ex/ex03.html 파일 경로를 확장자 형식까지 정확히 적어줘야한다. -->
+	<!-- 이대로 링크 타고 가면 파라미터가 입력되지 않아서 에러가 남. 파라미터를 입력해줘야한다 -->
+	
+	<a href="/servlet/ex03?name=김인규&birthday=20030523" target="_blank">링크</a> 
+	<!--  링크로 타고 갔으니까 두개가 서로 연결되어보이지만 ex03과 ex03.html 은 별개의! 독립된 개체다!!!!!!!  -->
+</body>
+</html>
