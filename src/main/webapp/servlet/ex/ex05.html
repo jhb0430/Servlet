@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이름, 생년월일 입력</title>
+</head>
+<body>
+
+	<h3>이름, 생년월일 입력</h3>
+				<!-- post method니까 post! -->
+	<form method="post" action="/servlet/ex05"> <!--  폼 태그에는 두가지 속성이 들어간다. 1. 매소드 2.액션 -->
+						<!--  입력값을 전달할 url페이지의 경로 -->
+	<label>이름</label><input type="text" name="name"><!--  파라미터 대칭시킬것임. 인풋 안의 요소에 적어줘야함. -->
+	<label>생년월일</label><input type="text" name="birthday"> 
+	<button type="submit">입력</button>
+	<!-- <button type="button">입력</button> -->
+	<!--  버튼의 타입을 "submit"으로 바꿔준다  -->
+	</form>
+	
+</body>
+</html>
