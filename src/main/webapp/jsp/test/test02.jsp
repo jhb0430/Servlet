@@ -51,14 +51,12 @@ BMI 수치
 	%>
 	
 	<!--  계산 누르면  이 페이지로-->
-	<div>
+	<div class="container">
 		<h1>BMI 측정 결과</h1>
-			<div class="d-flex">
-				<div>
+			<div>
+				<div class="display-4">
 				당신은 
-				</div>
-				<div class="text-info"><%= answer %></div>
-				<div>
+				<span class="text-info"><%= answer %></span>
 				입니다
 				</div>
 			</div>

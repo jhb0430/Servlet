@@ -23,23 +23,34 @@ parameter를 통해서 구분 하도록 구성
  	Date now = new Date();
  SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일");
  String todayDate = formatter.format(now);
+ /*
  SimpleDateFormat formatter2 = new SimpleDateFormat("HH시 mm분 ss초");
  String howTime = formatter2.format(now);
+ */
+ 
+ //String today = request.getParameter("today");
+ //String time = request.getParameter("time");
  
  %>
  
- <%-- 현재 날짜 확인을 누르면 얘 ... 얘로 링크되게 하란거잖아..? 아닌감 --%>
- <ul>
- <li>현재 날짜</li>
- </ul>
- <div class="">오늘 날짜 <%=todayDate %></div>
+ <%-- 현재 날짜 확인을 누르면 얘 ... 얘로 링크되게 하란거잖아..? 아닌감 
+	<ul>
+ 		<li>현재 시간</li>
+ 	</ul>
+ <div>현재 시간<%=howTime %></div>
+ --%>
+ 
  
  <%-- 현재 시간 확인을 누르면 얘 --%>
- <ul>
- <li>현재 시간</li>
- </ul>
- <div>현재 시간<%=howTime %></div>
- 
+ <div class="m-2">
+	 <ul>
+	 <li>현재 날짜</li>
+	 </ul>
+	 <div class="container display-3">
+		 오늘 날짜 
+		 <%=todayDate %>
+	 </div>
+ </div>
  
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
