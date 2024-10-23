@@ -30,6 +30,8 @@
 	 	// 피트 = cm / 30.48
 	 	String cal="";
 	 	
+	 	
+	 	/*
 	 	for(int i = 0; i < typeArray.length; i++){
 	 		
 		 	if(type.equals("meter")){
@@ -51,6 +53,7 @@
 		 	}
 	 		
 	 	}
+	 	*/
 	 
 	 	// 이거 아님!!!!!!! 
 	 	// 만약 미터를 선택함 -> 그럼 result + cal 로 배열에 저장시켜줘야함
