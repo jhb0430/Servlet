@@ -59,24 +59,6 @@ parameter를 통해서 구분 하도록 구성
 		</div>
 	</div>
 	
-<!-- 
-	<div class="m-2">
-		<ul>
-			<li>현재 시간</li>
-		</ul>
-		<div class="container">
-			<div class="container display-3"><%=dateFormatter%></div>
-		</div>
-	</div>
- 
- 
- <div class="m-2">
-	 <ul>
-	 <li>현재 날짜</li>
-	 </ul>
-	 <div class="container display-3"><%=timeString %></div>
- </div>
- -->	
  
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
