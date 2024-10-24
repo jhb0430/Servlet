@@ -19,16 +19,46 @@
 	 -->
 	 <% 
  		int cm= Integer.parseInt(request.getParameter("cm"));
-	 	// String type = request.getParameter("type");
-	 	String[] typeArray = request.getParameterValues("type");
-	 	String type = "";
-	 	double result = 0;
-	 	//인치, 야드, 피트 미터
-	 	// 미터 = cm / 100 
-	 	// 인치 = cm / 2.54
-	 	// 야드 = cm / 91.44
-	 	// 피트 = cm / 30.48
-	 	String cal="";
+		 	// String type = request.getParameter("type");
+		 	// String[] typeArray = request.getParameterValues("type");
+	 	String[] units = request.getParameterValues("unit");
+	 	
+	 		// String type = "";
+	 	
+	 		//double result = 0;
+		 	//인치, 야드, 피트 미터
+		 	// 미터 = cm / 100 
+		 	// 인치 = cm / 2.54
+		 	// 야드 = cm / 91.44
+		 	// 피트 = cm / 30.48			 선택되어서 계산된 항목만 출력.
+		double inch = cm * 0.39;
+		double yard = cm * 0.010936133;
+		double feet = cm * 0.032808399;
+		double meter = cm / 100.0; 
+		
+	
+	 		// String cal="";
+	 		
+		String result = "";
+	 	
+	 	for(int i = 0; i < units.length; i++){
+	 		String unit = units[i];
+	 		
+		 	if(unit.equals("meter")){
+		 		result += meter + "m" + "<br>\n";
+		 		// result += meter + "m<br>\n";
+		 	}
+		 	else if(unit.equals("inch")){
+		 		result += inch + "in" + "<br>\n";
+		 	}
+		 	else if(unit.equals("yard")){
+		 		result += yard + "yd" + "<br>\n";
+		 	}
+		 	else if(unit.equals("feet")){
+		 		result += feet + "ft" + "<br>\n";
+		 	}
+	 		
+	 	}
 	 	
 	 	
 	 	/*
@@ -61,11 +91,14 @@
 	 %>		
 	 
 	 
-	 
-	 <h1>변환 결과</h1>
-	 <div class= "display-4"><%=cm %>cm</div>
-	 <hr>
-	 <div class= "display-3"><%= type %>  </div>
+	 <div class="container">
+		 <h2>변환 결과</h2>
+		 <div class= "display-4"><%= cm %>cm</div>
+		 <hr>
+		 <div class= "display-4">
+		 <%= result %>  
+		 </div>
+	 </div>
 	 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

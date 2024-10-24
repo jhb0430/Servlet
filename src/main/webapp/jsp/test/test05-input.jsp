@@ -11,12 +11,12 @@
 	<div class="m-1">
 		<h1>길이 변환</h1>
 		<form method="post" action="/jsp/test/test05.jsp">
-			<div class="d-flex font-weight-bold"><input type="text" class="form-control col-2" name= "cm"> cm</div>
+			<div class="d-flex font-weight-bold"><input type="text" class="form-control col-3" name= "cm"> cm</div>
 			<div class="mt-2">
-				<label>인치 <input type="checkbox" name="type" value="inch" ></label>
-				<label>야드 <input type="checkbox" name="type" value ="yard"></label>
-				<label>피트 <input type="checkbox" name="type" value="feet"></label>
-				<label>미터 <input type="checkbox" name="type" value="meter"></label>
+				<label>인치 <input type="checkbox" name="unit" value="inch" ></label>
+				<label>야드 <input type="checkbox" name="unit" value ="yard"></label>
+				<label>피트 <input type="checkbox" name="unit" value="feet"></label>
+				<label>미터 <input type="checkbox" name="unit" value="meter"></label>
 			</div>
 			<button type="submit" class="btn btn-success mt-2">변환</button>
 		</form>
