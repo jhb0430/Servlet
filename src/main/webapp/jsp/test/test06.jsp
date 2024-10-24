@@ -39,7 +39,21 @@
 					<td><%= goods %></td>
 				</tr>
 			<%  } %>
+			
+			
 			</tbody>
+			
+<!-- 풀이
+			<% 
+			/* 
+			for(int i = 0; i < goodsList.size(); i++ ){
+					} 
+			*/
+			%>
+			 	<tr>
+					<td> <% // = i + 1%></td>
+					<td>< %= goodsList.get(i)%></td>
+-->		
 		</table>
 	 </div>
 	
