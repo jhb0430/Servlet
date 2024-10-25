@@ -58,9 +58,9 @@
 	 if(check.equals("check")){ // 
   <h1>체크</h1>
   
-  -->
   
 	<h2>확인용</h2>
+  -->
 		
 	<!-- 
 	<table>
@@ -96,7 +96,7 @@
 			for(Map<String,Object> info : list){ 
 				
 			
-				if(menu.equals(info.get("menu")) ){
+				if(menu.equals(info.get("menu")) && pointFilter == null ){
 						
 				%>
 			 		<tr>
@@ -106,9 +106,14 @@
 			 		</tr>
 			 	<% }%>
  				<%
- 				 if(pointFilter != null){ // 체크박스 체크되면 
-				%>
-		 		<h1>null 아님</h1>
+ 				 if(pointFilter != null && (double)info.get("point") > 4.0){ // 체크박스 체크되면 
+ 				 	%>
+ 				 		
+		 		<tr>
+			 			<td><%= info.get("name") %></td>
+			 			<td><%= info.get("menu") %></td>
+			 			<td><%= info.get("point") %></td>
+			 		</tr>
 		 		<% } %>	
 		 
 		 
