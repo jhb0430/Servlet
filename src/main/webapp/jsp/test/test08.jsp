@@ -77,6 +77,11 @@ List에 Map 형태로 책 정보들이 들어있습니다. -->
 책 세부 페이지에도 위에 있는 데이터를 포함해서 사용하세요.
 
 상세 페이지를 여기서 만들어야함 .. . 클릭하면 넘어오는 곳 
+
+
+// 하나의 책을 지칭할 수 있는 값을 파라미터로 전달 받는다 
+
+
  -->
 	
 	   
@@ -85,17 +90,21 @@ List에 Map 형태로 책 정보들이 들어있습니다. -->
  	<% 
  	 for(Map<String, Object> bookInfo : list){
 	   String title =  request.getParameter("title");
-	   if(title.equals(bookInfo.get("title"))){ %>
+	   if(title.equals(bookInfo.get("title"))){ 
+	   // int id = request.getParameter("id")
+	   //if(id == (Integer)bookInfo.get("id"))){ 
+		   
+	   %>
 	   
-	 	<div class="m-2">
-	 		<div class="d-flex mt-1 ">
+	 	<div class="">
+	 		<div class="d-flex m-2 container">
 			 	 	<div id="jpg">
 			 	 	<img src="<%= bookInfo.get("image")%>"> 
 			 	 	</div>
-		 	 	<div class="">
-			 	 	<div class="display-1 text-primary" id="bookname"> <%= bookInfo.get("title") %></div>
-			 	 	<div class="display-2 text-success" id="author"> <%= bookInfo.get("author") %></div>
-			 	 	<div class="display-3 text-secondary" id="company"> <%= bookInfo.get("publisher") %></div>
+		 	 	<div class="m-2">
+			 	 	<div class="display-1 font-weight-bold mt-1"> <%= bookInfo.get("title") %></div>
+			 	 	<div class="display-2 text-info mt-1"> <%= bookInfo.get("author") %></div>
+			 	 	<div class="display-3 text-secondary mt-1"> <%= bookInfo.get("publisher") %></div>
 		 	 	</div>
 	 		</div>
 	 	</div>

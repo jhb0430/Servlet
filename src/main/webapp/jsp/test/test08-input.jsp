@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자바 제어문 사용하기 3</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
@@ -77,7 +77,7 @@
 			%>
 					<tr>
 						<td><%= bookList.get("id")%></td>
-						<td><img src="<%= bookList.get("image")%>" class="w-25"></td>
+						<td><img src="<%= bookList.get("image")%>" class="w-25"></td>					<!-- "/jsp/test/test08.jsp?title=<= bookList.get("id")%>" --> 
 						<td class="text-primary display-4"><a href="/jsp/test/test08.jsp?title=<%= bookList.get("title")%>"><%= bookList.get("title")%></a></td> <!-- 이동은 얘가  -->
 					</tr>
 			<% } %>	    	
