@@ -96,18 +96,28 @@
 			for(Map<String,Object> info : list){ 
 				
 			
-				if(menu.equals(info.get("menu")) && pointFilter == null ){
-						
+				//if(menu.equals(info.get("menu")) && pointFilter == null ){
+				if(menu.equals(info.get("menu")) ){
 				%>
+				<!-- 
 			 		<tr>
 			 			<td><%= info.get("name") %></td>
 			 			<td><%= info.get("menu") %></td>
 			 			<td><%= info.get("point") %></td>
 			 		</tr>
-			 	<% }%>
+			 		}
+				 -->
+				 
  				<%
- 				 if(pointFilter != null && (double)info.get("point") > 4.0){ // 체크박스 체크되면 
- 				 	%>
+						// pointFilter가 null이면
+						// pointFilter가 null이 아니면, poin가 4 초과인 결과만
+ 				 if(pointFilter == null || (pointFilter != null && (double)info.get("point") > 4.0)){ // 체크박스 체크되면 
+ 				 // if(pointFilter != null && (double)info.get("point") > 4.0){ // 체크박스 체크되면 
+ 				
+ 				// ↑처럼 해되 되지만 업캐스팅된걸 다운캐스팅 해서 쓰는게 좋다
+ 				// Double point = (Double)info.get("info");
+ 					 %>
+ 				 	
  				 		
 		 		<tr>
 			 			<td><%= info.get("name") %></td>
@@ -115,7 +125,7 @@
 			 			<td><%= info.get("point") %></td>
 			 		</tr>
 		 		<% } %>	
-		 
+		 <% }%>
 		 
 		 <% }%>	
 		 
