@@ -92,7 +92,7 @@ List에 Map 형태로 책 정보들이 들어있습니다. -->
 	   String title =  request.getParameter("title");
 	   if(title.equals(bookInfo.get("title"))){ 
 	   // int id = request.getParameter("id")
-	   //if(id == (Integer)bookInfo.get("id"))){ 
+	   //if(id == (Integer)bookInfo.get("id"))){  타이틀은 중복될 수도 있기 때문에 id로 잡고 하는게 낫다!! 
 		   
 	   %>
 	   

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#warp{
+	width:900px;
+}
+
+header{
+	height:100px;
+}
+
+#logo {
+	width: 100px;
+	height:80px;
+}
+
