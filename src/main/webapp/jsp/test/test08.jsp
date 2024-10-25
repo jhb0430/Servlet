@@ -65,9 +65,6 @@ List에 Map 형태로 책 정보들이 들어있습니다. -->
 	    list.add(map);
 	    
 	    
-	    for(Map<String, Object> bookInfo : list){
-	    	
-	    }
 	%>	
    
    
@@ -82,20 +79,29 @@ List에 Map 형태로 책 정보들이 들어있습니다. -->
 상세 페이지를 여기서 만들어야함 .. . 클릭하면 넘어오는 곳 
  -->
 	
- 	
- 	
- 	<div class="m-2">
- 		<div class="d-flex mt-1 ">
-		 	 	<div class="bg-primary" id="jpg">
-		 	 	<img src="http://image.kyobobook.co.kr/images/book/xlarge/194/x9788972756194.jpg"> 
+	   
+		
+	   
+ 	<% 
+ 	 for(Map<String, Object> bookInfo : list){
+	   String title =  request.getParameter("title");
+	   if(title.equals(bookInfo.get("title"))){ %>
+	   
+	 	<div class="m-2">
+	 		<div class="d-flex mt-1 ">
+			 	 	<div id="jpg">
+			 	 	<img src="<%= bookInfo.get("image")%>"> 
+			 	 	</div>
+		 	 	<div class="">
+			 	 	<div class="display-1 text-primary" id="bookname"> <%= bookInfo.get("title") %></div>
+			 	 	<div class="display-2 text-success" id="author"> <%= bookInfo.get("author") %></div>
+			 	 	<div class="display-3 text-secondary" id="company"> <%= bookInfo.get("publisher") %></div>
 		 	 	</div>
-	 	 	<div class="">
-		 	 	<div class="bg-success" id="bookname"> 나미야 잡화점의 기적</div>
-		 	 	<div class="bg-danger " id="author"> 히가시노 게이고</div>
-		 	 	<div class="bg-success" id="company"> 현대문학</div>
-	 	 	</div>
- 		</div>
- 	</div>
+	 		</div>
+	 	</div>
+	 	<% 
+	   }
+	   }%>
  
  
  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
