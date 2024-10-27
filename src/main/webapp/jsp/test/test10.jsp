@@ -115,7 +115,7 @@
 				<h1 class="text-success font-weight-bold ">Melong</h1>
 				<input type="text" class="form-control col-4 ml-3">
 				<div class="input-group-append">
-				<button type="button" class="btn btn-info">검색</button>
+				<button type="submit" class="btn btn-info">검색</button>
 			</div>
 		</header>
 		<nav>
@@ -136,7 +136,7 @@
 					int min = (int)list.get("time") / 60;
 					int sec = (int)list.get("time") % 60;
 					
-					if(title.equals(list.get("title"))){
+					if(title.equals(list.get("title")) || search.equals(list.get("title"))){
 				%>
 				
 				<div> 

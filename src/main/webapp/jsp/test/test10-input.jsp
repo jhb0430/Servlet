@@ -106,7 +106,7 @@
 	<form method="post" action="/jsp/test/test10.jsp">
 		<header class="d-flex align-items-center justify-content-start p-2">
 				<h1 class="text-success font-weight-bold ">Melong</h1>
-				<input type="text" class="form-control col-4 ml-3">
+				<input type="text" class="form-control col-4 ml-3" name="search">
 				<div class="input-group-append">
 				<button type="button" class="btn btn-info">검색</button>
 			</div>
