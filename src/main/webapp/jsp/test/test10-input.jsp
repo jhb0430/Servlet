@@ -98,19 +98,12 @@
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
-    
-    
-    
-    String title = request.getParameter("title");
-    String search =  request.getParameter("search");
 %>
  
- <%-- if(search.equals(list.get("title"))){
- 	세부사항 보여주기 
- } --%>
  
  
 	<div id="wrap">
+	<form method="post" action="/jsp/test/test10.jsp">
 		<header class="d-flex align-items-center justify-content-start p-2">
 				<h1 class="text-success font-weight-bold ">Melong</h1>
 				<input type="text" class="form-control col-4 ml-3">
@@ -127,58 +120,45 @@
 				<li class="nav-item"><a class="nav-link text-dark font-weight-bold" href="#">뮤직어워드</a></li>
 			</ul>
 		</nav>
-		<!--  -->
-		<section class="mt-3 ml-2">
-				<h3>곡 정보</h3>
+		<section class="mt-3">
 			<div class="d-flex border border-success p-2 col-11 ml-2">
-				<% 
-					for(Map<String, Object> list : musicList){
-					int min = (int)list.get("time") / 60;
-					int sec = (int)list.get("time") % 60;
-					
-					if(title.equals(list.get("title"))){
-				%>
-				
-				<div> 
-				<img width="100" src= "<%= list.get("thumnail")%>">
-				</div>
+				<div id="img"> <img src= "<%= artistInfo.get("photo") %>"></div>
 				<div class="ml-2">
-					<div>
-						<div class="display-4"><%= list.get("title")%></div>
-						<h5 class="text-success"><%= list.get("singer")%></div>
-					</div>
-					<div>
-						<table>
-							<tr>
-								<td>앨범</td>
-								<td><%= list.get("album") %></td>
-							</tr>
-							<tr>
-								<td>재생시간</td>
-								<td><%= min %> : <%= sec %> </td>
-							</tr>
-							<tr>
-								<td>작곡가</td>
-								<td><%= list.get("composer") %> </td>
-							</tr>
-							<tr>
-								<td>작사가</td>
-								<td><%= list.get("lyricist") %> </td>
-							</tr>
-							
-						</table>
-						
-					</div>
+					<h3 id="artist"><%=artistInfo.get("name") %></h3>
+					<div id="enter"><%=artistInfo.get("agency") %></div>
+					<div id="debut"><%=artistInfo.get("debut") %> 데뷔</div>
 				</div>
-				<% }} %>
 			</div>
 			<div class="mt-3 ml-2">
-				<h3 class="">가사</h3>
+				<h3 class="">곡 목록</h3>
+				<table class="table text-center">
+					<thead class="font-weight-bold">
+						<tr>
+							<td>no</td>
+							<td>제목</td>
+							<td>앨범</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+			 	<%
+			 		int number= 0;
+			 	 for(Map<String, Object> list : musicList){
+			 		 number++;
+				%> 
+				
+							<td><%= number %></td>
+							<td><a href="/jsp/test/test10.jsp?title=<%=list.get("title") %>"><%= list.get("title") %></a></td>
+							<td><%= list.get("album") %></td>
+						</tr>
+			 	<% }
+			 	%>
+						
+					</tbody>
+				</table>
 			</div>	
-			<hr>
-			<div>
-				가사 정보 없음
-			</div>
+	</form>
+			
 		</section>
 		<footer>
 		<hr>

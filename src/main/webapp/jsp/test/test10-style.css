@@ -2,14 +2,14 @@
 
 #warp{
 	width:900px;
+	margin: 0, auto;
 }
 
 header{
 	height:100px;
 }
 
-#logo {
-	width: 100px;
-	height:80px;
+footer {
+	height:100px;
 }
 
