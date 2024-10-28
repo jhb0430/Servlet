@@ -9,7 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <title>JSP - 종합문제 2</title>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<link rel="stylesheet" href="test10-style.css">
 </head>
 
 <body>
@@ -103,13 +105,19 @@
  
  
 	<div id="wrap">
-	<form method="post" action="/jsp/test/test10.jsp">
 		<header class="d-flex align-items-center justify-content-start p-2">
-				<h1 class="text-success font-weight-bold ">Melong</h1>
-				<input type="text" class="form-control col-4 ml-3" name="search">
-				<div class="input-group-append">
-				<button type="button" class="btn btn-info">검색</button>
-			</div>
+				<div class="logo d-flex align-items-center col-3">
+					<h1 class="text-success font-weight-bold ">Melong</h1>
+				</div>
+	<form class="col-6" method="post" action="/jsp/test/test10.jsp">
+				<div class="search d-flex align-items-center"> 
+					<div class="input-group">
+						<input type="text" class="form-control" name="title">
+						<div class="input-group-append">
+							<button type="submit" class="btn btn-info">검색</button>
+						</div>
+					</div>
+				</div>
 		</header>
 		<nav>
 			<ul class="nav nav-fill col-5 mt-3">
@@ -121,22 +129,25 @@
 			</ul>
 		</nav>
 		<section class="mt-3">
-			<div class="d-flex border border-success p-2 col-11 ml-2">
-				<div id="img"> <img src= "<%= artistInfo.get("photo") %>"></div>
-				<div class="ml-2">
+		
+			<div class="d-flex border border-success p-3 col-11 ml-2">
+				<div id="img"> 
+					<img width = "200" src= "<%= artistInfo.get("photo") %>">
+				</div>
+				<div class="ml-3">
 					<h3 id="artist"><%=artistInfo.get("name") %></h3>
 					<div id="enter"><%=artistInfo.get("agency") %></div>
-					<div id="debut"><%=artistInfo.get("debut") %> 데뷔</div>
+					<div id="debut"><%=artistInfo.get("debute") %> 데뷔</div>
 				</div>
 			</div>
-			<div class="mt-3 ml-2">
+			<div class="mt-4 ml-2">
 				<h3 class="">곡 목록</h3>
 				<table class="table text-center">
 					<thead class="font-weight-bold">
 						<tr>
-							<td>no</td>
-							<td>제목</td>
-							<td>앨범</td>
+							<th>no</th>
+							<th>제목</th>
+							<th>앨범</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -148,7 +159,7 @@
 				%> 
 				
 							<td><%= number %></td>
-							<td><a href="/jsp/test/test10.jsp?title=<%=list.get("title") %>"><%= list.get("title") %></a></td>
+							<td><a href="/jsp/test/test10.jsp?id=<%=list.get("id") %>"><%= list.get("title") %></a></td>
 							<td><%= list.get("album") %></td>
 						</tr>
 			 	<% }

@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>JSP - 종합문제 2</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<link rel="stylesheet" href="test10-style.css">
 </head>
 
 <body>
@@ -101,8 +102,20 @@
     
     
     
-    String title = request.getParameter("title");
-    String search =  request.getParameter("search");
+    
+    // String title = request.getParameter("title");
+    
+    String title =  request.getParameter("title");
+    
+    
+    // id가 null이 아닌 경우에만 받아올 수 있도록 미리 설정 
+    String idString = request.getParameter("id");
+    int id = 0;
+    if(idString != null) {
+    	id = Integer.parseInt(idString);
+    //int id = Integer.parseInt(request.getParameter("id"));
+    }
+    
 %>
  
  <%-- if(search.equals(list.get("title"))){
@@ -128,51 +141,61 @@
 			</ul>
 		</nav>
 		<!--  -->
-		<section class="mt-3 ml-2">
+		<section class="mt-4 ml-2">
 				<h3>곡 정보</h3>
-			<div class="d-flex border border-success p-2 col-11 ml-2">
 				<% 
 					for(Map<String, Object> list : musicList){
 					int min = (int)list.get("time") / 60;
 					int sec = (int)list.get("time") % 60;
 					
-					if(title.equals(list.get("title")) || search.equals(list.get("title"))){
+					// int id = Integer.parseInt(request.getParameter("id"));
+					
+					//if(title.equals(list.get("title")) || search.equals(list.get("title"))){
+					 // if(title.equals(list.get("title"))){
+				// 타이틀이 있는 경우면 타이틀로 비교하고 아이디가 있으면 아이디로 비교해라
+				
+				 if(title != null && title.equals(list.get("title"))
+				 	|| id != 0 && id == (Integer)list.get("id")){	
+						// id가 같고, id가 0이 아니고 
+							// 검색했을때 이름이 같으면 
 				%>
 				
+			<div class="d-flex border border-success p-3 col-11 ml-2">
 				<div> 
-				<img width="100" src= "<%= list.get("thumnail")%>">
+					<img width="200" src= "<%= list.get("thumbnail")%>">
 				</div>
-				<div class="ml-2">
+				<div class="ml-4">
 					<div>
-						<div class="display-4"><%= list.get("title")%></div>
-						<h5 class="text-success"><%= list.get("singer")%></div>
-					</div>
-					<div>
-						<table>
-							<tr>
-								<td>앨범</td>
-								<td><%= list.get("album") %></td>
-							</tr>
-							<tr>
-								<td>재생시간</td>
-								<td><%= min %> : <%= sec %> </td>
-							</tr>
-							<tr>
-								<td>작곡가</td>
-								<td><%= list.get("composer") %> </td>
-							</tr>
-							<tr>
-								<td>작사가</td>
-								<td><%= list.get("lyricist") %> </td>
-							</tr>
-							
-						</table>
+							<div class="display-4"><%= list.get("title")%></div>
+							<h5 class="text-success font-weight-bold"><%= list.get("singer")%></div>
 						
+						<div class="small">
+								<table>
+									<tr>
+										<td>앨범</td>
+										<td><%= list.get("album") %></td>
+									</tr>
+									<tr>
+										<td>재생시간</td>
+										<td> <%= min %> : <%= sec %> </td>
+									</tr>
+									<tr>
+										<td>작곡가</td>
+										<td><%= list.get("composer") %> </td>
+									</tr>
+									<tr>
+										<td>작사가</td>
+										<td><%= list.get("lyricist") %> </td>
+									</tr>
+									
+								</table>
+							</div>
 					</div>
 				</div>
-				<% }} %>
+			<% 		}  %>
+			<% 	} %>
 			</div>
-			<div class="mt-3 ml-2">
+			<div class="mt-4 ml-2">
 				<h3 class="">가사</h3>
 			</div>	
 			<hr>

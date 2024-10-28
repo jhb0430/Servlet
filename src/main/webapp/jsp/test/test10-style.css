@@ -1,14 +1,23 @@
 @charset "UTF-8";
 
-#warp{
-	width:900px;
+#wrap{
+	width:1200px;
+	/*height:800px;*/
 	margin: 0, auto;
 }
-
+/*
 header{
 	height:100px;
 }
+*/
 
+header > .logo {
+	heigth : 100px;
+	/*
+	width : 300px;
+	*/
+	
+}
 footer {
 	height:100px;
 }
