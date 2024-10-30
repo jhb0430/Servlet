@@ -1,21 +1,28 @@
 package com.jhb0430.servlet.database.test;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jhb0430.servlet.common.MysqlService;
 
+
+
+@WebServlet("/db/test/test02")
 public class Test02Controller extends HttpServlet{
 	@Override
 	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+/*
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
+*/
+
 //- Databse 연동 - 연습 문제
 //JSP 와 Database 연동
 	
@@ -61,7 +68,9 @@ CREATE TABLE `url` (
 	
 //출력 컬럼은 name, url 입니다.
 //url 내용을 a 태그를 이용해서 연결이 되도록 하세요.
-//SELECT `name , `url` FROM `url` ORDER BY `id` DESC;
+		
+
+
 		String url = request.getParameter("url");
 		String name = request.getParameter("name");
 
@@ -69,11 +78,15 @@ CREATE TABLE `url` (
 		
 		mysqlService.connect();
 	
-		String query = "INSERT INTO  `url`\r\n"
+		String query = "INSERT INTO  `bookmark`\r\n"
 				+ "(`name`,`url`)\r\n"
 				+ "VALUE \r\n"
 				+ "('" + name + "','"  + url + "');";
 	
+		int count = mysqlService.update(query);
+		
+//		String query = " DELETE FROM `bookmark` \r\n"
+//				+ "    WHERE `url`= 'url.get(\"url\")';";
 		
 		response.sendRedirect("/db/test/test02.jsp");
 	

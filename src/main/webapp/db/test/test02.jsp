@@ -8,56 +8,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>즐겨찾기 목록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
 
 
 	<% 
-		MysqlService = mysqlService = new MysqlService();
+		MysqlService mysqlService = new MysqlService();
 		
 		mysqlService.connect();
 		
-		List<Map<String,Object>> urlList = mysqlService.select("SELECT * FROM `url`;");
+		List<Map<String,Object>> urlList = mysqlService.select("SELECT * FROM `bookmark` ORDER BY `id` DESC;");
 	
+		mysqlService.disconnect();	
 	
 	
 	%>
 
-	<table class="table">
-		<thead>
+	<table class="table text-center">
+		<thead class="font-weight-bold">
 			<tr>
 				<th>사이트</th>
 				<th>사이트 주소</th>
 			</tr>
 		</thead>
 		<tbody>
-<% for(url : urlList){%>
+<% for(Map<String,Object> bookmark : urlList){%>
 			<tr>
-				<td><%= url.get("name") %></td>
-				<td><a href="<%= url.get("url") %>"></a></td>
-				<td><button type="button">삭제하기</button></td>
+				<td><%= bookmark.get("name") %></td>
+				<td><a href="<%= bookmark.get("url") %>" target="_blank"><%=bookmark.get("url") %></a></td>
+				<td><a href="/db/test/test02_Del?id=<%=bookmark.get("id") %>" target="_blank" class="text-light btn btn-secondary">삭제하기</a></td>
 			</tr>
 <%} %>
-			<tr>
-				<td>인스타</td>
-				<td><a href="https://instagram.com"></a></td>
-			</tr>
-			<tr>
-				<td>인스타</td>
-				<td><a href="https://instagram.com"></a></td>
-			</tr>
-			<tr>
-				<td>인스타</td>
-				<td><a href="https://instagram.com"></a></td>
-			</tr>
 		</tbody>
 	
 	</table>
 
 	<%--
-	DELETE FROM `url` WHERE url= url.get("url");
+	DELETE FROM `bookmark` WHERE `url`= url.get("url");
 	
 	--%>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

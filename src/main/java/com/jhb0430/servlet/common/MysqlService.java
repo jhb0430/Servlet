@@ -13,11 +13,41 @@ import java.util.Map;
 
 public class MysqlService {
 
+	
+//	클래스를 설계하는 입장에서
+//	해당 클래스에 대한 객체 생성을 직접 관리하고,
+//	하나의 객체를 고융해서 사용하도록 구성한다.
+	// Singleton pattern (Design pattern)
+	
+	private static MysqlService mysqlService = null;
+	
+	
 //		mySql jdbc를 간편하게 사용하기 위함
 
 		// 멤버 변수
 		private Connection connection;
 	
+		
+		
+	// 객체 생성을 이 안에서 직접 한다!
+	// 자신의 클래스에 대한 객체를 돌려주는 메소드
+		
+		// 접근제어자 뒤에 static 이라는 키워드를 붙인다
+		// static -> 객체 생성 없이 사용하도록 하는 메소드 or 멤버 변수애 사용
+		// static 이 붙어있으면 객체 생성 없이 사용할 수 있다 !! 
+		// -> 이 안에서 사용되는 애들은 객체생성 없이 사용할 수 있는 애들이어야함.
+		//(객체를 생성해야 쓸 수 있는 애들은 못쓴다는 뜻 )
+		public static MysqlService getInstance() {
+			
+			
+			if(mysqlService == null) { // 한번도 객체 생성이 되지 않은 경우에만
+				
+			mysqlService = new MysqlService(); 	// 새로운 객체 생성
+			}
+			
+			return mysqlService;
+		}
+		
 	// 접속 기능
 	
 	public void connect() {
